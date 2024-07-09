@@ -1,0 +1,10 @@
+div id="#{dom_id painting}"  class="col-lg-8"
+  p
+    strong Name:
+    =< painting.name
+  p
+    strong Description:
+    =< painting.description
+  
+  / - if painting.image.attached?
+  = image_tag url_for(painting.image) ,class:"img-thumbnail", style:"width:500px; height:500px"

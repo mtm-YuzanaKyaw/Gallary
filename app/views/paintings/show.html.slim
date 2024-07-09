@@ -1,0 +1,14 @@
+
+
+== render @painting
+
+p
+  strong Artist:
+  =< @artist.artist_name
+
+div 
+  => link_to "Edit this painting", edit_painting_path(@painting)
+  '|
+  =< link_to "Back to paintings", paintings_path
+
+  = button_to "Destroy this painting", @painting, method: :delete

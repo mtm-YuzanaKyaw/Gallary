@@ -1,0 +1,29 @@
+= form_with(model: painting, local: true, multipart: true) do |form|
+  - if painting.errors.any?
+    div style="color: red"
+      h2 = "#{pluralize(painting.errors.count, "error")} prohibited this painting from being saved:"
+      ul
+        - painting.errors.each do |error|
+          li = error.full_message
+
+  div
+    = form.label :name, style: "display: block"
+    = form.text_field :name
+
+  div
+    = form.label :description, style: "display: block"
+    = form.text_area :description
+
+  / div
+  /   = form.label :artist_id, style: "display: block"
+  /   = form.text_field :artist_id
+  div 
+    = form.label :artist_id, style: "display: block"
+    = form.select :artist_id,options_for_select(@artists.map { |artist| [artist.artist_name, artist.id] }, painting.artist_id), { prompt: 'Select Artists' }, class: 'form-control'
+  
+  div 
+    = form.label :image, style: "display: block"
+    = form.file_field :image
+
+  div
+    = form.submit

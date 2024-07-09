@@ -20,6 +20,7 @@ class PaintingsController < ApplicationController
 
   # GET /paintings/1/edit
   def edit
+    @artists =  Artist.all
   end
 
   def user_role

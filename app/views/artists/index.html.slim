@@ -1,11 +1,29 @@
-p style="color: green" = notice
+- if current_user.role == 'admin'
+  = link_to "New artist", new_artist_path, class:"btn btn-secondary"
 
 h1 Artists
 
-#artists
-  - @artists.each do |artist|
-    == render artist
-    p
-      = link_to "Show this artist", artist
+table class="table table-striped"
+  thead 
+    tr 
+      th No 
+      th Name 
+      th Phone No 
+      th 
 
-= link_to "New artist", new_artist_path
+  #artists
+    - @artists.each do |artist|
+      tr 
+        td 
+          = artist.id 
+        td 
+          = artist.artist_name
+        td 
+          = artist.phone
+        td class="d-flex"
+          = link_to "Show this artist", artist, class:"btn btn-outline-primary"
+          
+
+          
+
+

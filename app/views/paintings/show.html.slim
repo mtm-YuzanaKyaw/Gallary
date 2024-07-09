@@ -1,14 +1,20 @@
+div class="card shadow col-lg-10 p-3 m-3" 
+  = image_tag url_for(@painting.image), class:"img-thumbnail", style:"height:45%;"
+  div class="card-body"
+    h5 class="card-title" 
+      = @painting.name
+    p class="card-text" 
+      = @painting.description
+    p
+      strong Artist:
+      =< @artist.artist_name
 
+-if current_user.role == 'admin'
+  div class="d-flex"
+    => link_to "Edit this painting", edit_painting_path(@painting) , class:"btn btn-success mx-2"
 
-== render @painting
+    
 
-p
-  strong Artist:
-  =< @artist.artist_name
+    = button_to "Destroy this painting", @painting, method: :delete , class:"btn btn-danger mx-2"
 
-div 
-  => link_to "Edit this painting", edit_painting_path(@painting)
-  '|
-  =< link_to "Back to paintings", paintings_path
-
-  = button_to "Destroy this painting", @painting, method: :delete
+=< link_to "Back to paintings", paintings_path , class:"btn btn-secondary mx-2"

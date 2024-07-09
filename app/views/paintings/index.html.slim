@@ -1,11 +1,19 @@
-p style="color: green" = notice
+
 
 h1 Paintings
+= link_to "New painting", new_painting_path, class:"btn my-2 btn-secondary"
 
-#paintings
+#paintings class="row"
   - @paintings.each do |painting|
-    == render painting
-    p
-      = link_to "Show this painting", painting
+    div class="card col-lg-4 col-md-5 col-sm-12 p-2 my-2 shadow" 
+      = image_tag url_for(painting.image), class:"img-thumbnail", style:"height:45%;"
+      div class="card-body"
+        h5 class="card-title" 
+          = painting.name
+        p class="card-text" 
+          = painting.description
 
-= link_to "New painting", new_painting_path
+      p
+        = link_to "View Detail", painting, class:"btn btn-primary"
+
+

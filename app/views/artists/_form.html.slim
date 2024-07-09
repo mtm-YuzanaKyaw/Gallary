@@ -7,12 +7,12 @@
           li = error.full_message
 
   div
-    = form.label :artist_name, style: "display: block"
+    = form.label :artist_name, style: "display: block" ,class:"form-lable"
     = form.text_field :artist_name
 
   div
-    = form.label :phone, style: "display: block"
+    = form.label :phone, style: "display: block" ,class:"form-lable"
     = form.text_field :phone
 
   div
-    = form.submit
+    = form.submit class:"btn btn-primary"
